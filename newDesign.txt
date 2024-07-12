@@ -1,0 +1,152 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table Users {
+  userId integer [primary key]
+  userName varchar(80)
+  firstName varchar(80)
+  lastName varchar(80)
+  phoneNoCountryCode1 varchar(10)
+  phoneNumber1 varchar(20)
+  phoneNoCountryCode2 varchar(10)
+  phoneNumber2 varchar(20)
+  position varchar(50)
+  department varchar(50)
+  countryId integer
+  countryName varchar(50)
+  stateId integer 
+  stateName varchar(50)
+  cityId integer
+  cityName varchar(50)
+  profileImageName varchar(100)
+  profileImageUrl text 
+  email varchar(100)
+  password varchar(250)
+  bio text 
+  interest text
+  address1 text 
+  address2 text
+  companyName varchar(200)
+  pinCode varchar(30)
+  linkedIn text 
+  website text 
+  deleteFlag tinyint [default: 0] // 1 for delete (soft delete)
+  isManualConnectionUserFlag tinyint [default: 0]  // 1 for yes 
+  totalConnectionCount integer [default: 0]
+  status tinyint 
+  updatedAt timestamp
+  createdAt timestamp
+  organizationId integer
+}
+
+Table Organization{
+  organizationId int [primary key]
+  orgName varchar(200)
+  address text 
+  countryId integer
+  countryName varchar(50)
+  profileImageName varchar(100)
+  profileImageUrl text 
+  stateId integer 
+  stateName varchar(50)
+  cityId integer
+  cityName varchar(50)
+  zipcode varchar(20)
+  totalUsers integer [default: 0]
+  deleteFlag tinyint [default: 0] // 1 for delete (soft delete)
+  status tinyint 
+  updatedAt timestamp
+  createdAt timestamp
+}
+
+Table Connections{
+connectionId integer [primary key]
+userId integer
+connectedUserId integer
+status tinyint 
+updatedAt timestamp
+createdAt timestamp
+deleteFlag tinyint [default: 0] // 1 for delete (soft delete)
+}
+
+Table OtpManagment {
+  otpId integer
+  userId integer
+  email varchar(100)
+  otp integer
+  type tinyint [default: 0] //0 for registration 1 for account deletion
+  verifyStatus tinyint [default: 0] // 1 for yes 
+  updatedAt timestamp
+  createdAt timestamp
+  deleteFlag tinyint [default: 0] // 1 for delete (soft delete)
+}
+
+Table Features {
+  featureId integer [primary key]
+  imageName varchar(200)
+  imageUrl text
+  updatedAt timestamp
+  createdAt timestamp
+  userId integer
+  deleteFlag tinyint [default: 0] // 1 for delete (soft delete)
+}
+
+Table Countries {
+  countryId integer [primary key]
+  name varchar(100) [not null]
+  isoCode varchar(100) [not null]
+  flag varchar(100) [not null]
+  phonecode varchar(100) [not null]
+  currency varchar(100)
+  latitude varchar(100) [not null]
+  longitude varchar(100) [not null]
+  updatedAt timestamp
+  createdAt timestamp
+}
+
+Table Cities {
+  cityId integer [primary key]
+  countryId integer [not null]
+  stateId integer [not null]
+  name varchar(100) [not null]
+  stateCode varchar(100) [not null]
+  countryCode varchar(100)
+  latitude varchar(100) [not null]
+  longitude varchar(100) [not null]
+  updatedAt timestamp
+  createdAt timestamp
+}
+
+Table States {
+  stateId integer [primary key]
+  countryId integer [not null]
+  name varchar(100) [not null]
+  isoCode varchar(100) [not null]
+  countryCode varchar(100)
+  latitude varchar(100) [not null]
+  longitude varchar(100) [not null]
+  updatedAt timestamp
+  createdAt timestamp
+}
+
+
+Ref: Users.organizationId < Organization.organizationId
+Ref: Connections.userId<Users.userId 
+ref: Connections.connectedUserId < Users.userId
+ref: OtpManagment.userId < Users.userId
+ref: States.countryId < Countries.countryId
+ref: Cities.countryId < Countries.countryId
+ref: Cities.stateId < States.stateId
+ref: Features.userId < Users.userId
+
+
+// Notes 
+User Belongs To Organization 
+Organization HasMany Users 
+User has many connections 
+connection belongs to user 
+connection belongs to user (connected user)
+user has many features 
+features belong to users 
+
+

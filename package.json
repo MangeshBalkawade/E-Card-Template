@@ -1,0 +1,42 @@
+{
+  "name": "express",
+  "version": "1.0.0",
+  "description": "E-business application",
+  "main": "index.js",
+  "scripts": {
+    "test": "node src/app.js",
+    "start": "nodemon src/app.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "sql",
+    "sequelize",
+    "advanced",
+    "level",
+    "of",
+    "application"
+  ],
+  "author": "Mangesh Balkawade",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1251.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "country-state-city": "^3.2.1",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "multer-s3": "^2.10.0",
+    "mysql2": "^3.9.1",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.0.3",
+    "path": "^0.12.7",
+    "sequelize": "^6.37.1",
+    "util": "^0.12.5"
+  }
+}

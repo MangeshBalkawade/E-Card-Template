@@ -1,0 +1,38 @@
+project-root/
+│
+├── src/
+│   ├── config/
+│   │   ├── config.json          // Sequelize configuration
+│   │   └── database.js          // Database initialization
+│   │
+│   ├── controllers/
+│   │   └── UserController.js    // Controllers for handling routes
+│   │
+│   ├── models/
+│   │   ├── index.js             // Initializes and associates all Sequelize models
+│   │   ├── User.js              // Sequelize model definitions
+│   │   └── OtherModel.js
+│   │
+│   ├── routes/
+│   │   ├── index.js             // Routes initialization
+│   │   └── userRoutes.js        // Route definitions for users
+│   │
+│   ├── services/
+│   │   └── UserService.js       // Business logic and data manipulation
+│   │
+│   ├── middleware/
+│   │   ├── authMiddleware.js    // Authentication middleware
+│   │   └── otherMiddleware.js
+│   │
+│   ├── utils/
+│   │   ├── validation.js        // Input validation functions
+│   │   └── otherUtils.js
+│   │
+|   ├── Validations/
+│   │   ├── userValidations        // Input Seperate validation functions
+│   │   
+│   └── app.js                  // Express application setup
+│
+├── migrations/                  // Sequelize migrations
+│
+└── tests/                       // Unit and integration tests
