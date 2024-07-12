@@ -36,3 +36,8 @@ project-root/
 ├── migrations/                  // Sequelize migrations
 │
 └── tests/                       // Unit and integration tests
+
+---------------
+
+flow to developed the api 
+Routes -> Controllers -> Services -> Models 
