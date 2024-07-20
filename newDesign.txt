@@ -36,7 +36,7 @@ Table Users {
   status tinyint 
   updatedAt timestamp
   createdAt timestamp
-  organizationId integer
+  organizationId integer // remaining 
 }
 
 Table Organization{

@@ -1,7 +1,7 @@
 const { body, param, check, validationResult } = require("express-validator");
 const Messages = require("../utils/messages");
 
-const ValidateFieldsCommon = (...fields) => {
+const validateFieldsCommon = (...fields) => {
   return async (req, res, next) => {
     //  console.log(req.body, fields);
     const validationRules = fields.map((field) =>
@@ -22,5 +22,5 @@ const ValidateFieldsCommon = (...fields) => {
 };
 
 module.exports = {
-  ValidateFieldsCommon,
+  validateFieldsCommon,
 };

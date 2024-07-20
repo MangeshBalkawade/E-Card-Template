@@ -1,8 +1,8 @@
-const DbModel = require("../models/userModel");
-const logService = require("./logService");
+const DbModel = require("../models/otpManagmentModel");
 const tableName = DbModel.tableName;
 const PrimaryKeyID = DbModel.primaryKeyAttributes[0];
 const Messages = require("../utils/messages");
+const logService = require("./logService");
 const { Op } = require("sequelize");
 const commonUtils = require("../utils/commonUtils");
 
@@ -325,7 +325,7 @@ module.exports = {
     }
   },
 
-  async getSingleDataWithFilterAndAttributes(
+  async getSingleDataWithFilterAndAttributes (
     filter,
     attributes,
     orderBy = "ASC"

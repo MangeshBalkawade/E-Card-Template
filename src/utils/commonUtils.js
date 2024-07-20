@@ -6,12 +6,9 @@ const ProjectConfig = require("../config/projectConfig");
 module.exports = {
   async log(data, message = "LogData") {
     const isLog = ProjectConfig.LogEnableDisabled;
-    return new Promise((resolve, reject) => {
-      if (isLog) {
-        console.log(`${message}--------------${data}`);
-      }
-      return resolve(true);
-    });
+    if (isLog) {
+      console.log(`${message}--------------${data}`);
+    }
   },
 
   async passwordEncryptionDeCryption(password, type = "") {
@@ -59,14 +56,14 @@ module.exports = {
   async configureEmail() {
     return new Promise((resolve, reject) => {
       const nodemailer = require("nodemailer");
-      console.log("email configure");
+      // console.log("email configure");
       let smtpAuth;
       smtpAuth = {
-        user: "",
-        pass: "",
+        user: "info@conqt.com",
+        pass: "Conqt@123",
       };
       let smtpConfig = {
-        host: "",
+        host: "smtp.mail.us-east-1.awsapps.com",
         port: 465,
         secure: true, // true for 465, false for other ports
         auth: smtpAuth,
@@ -85,7 +82,7 @@ module.exports = {
   },
   async sendMail(transporter, subject, template = "", email) {
     return new Promise((resolve, reject) => {
-      console.log(subject, email);
+      // console.log(subject, email);
       transporter.sendMail(
         {
           from: {
@@ -107,5 +104,11 @@ module.exports = {
         }
       );
     });
+  },
+
+  async generateRandomNumber(digits) {
+    const min = 10 ** (digits - 1);
+    const max = 10 ** digits - 1;
+    return Math.floor(min + Math.random() * (max - min + 1));
   },
 };

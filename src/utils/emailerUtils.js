@@ -1,5 +1,5 @@
 const commonUtils = require("../utils/commonUtils");
-const logService = require("../services/LogService");
+const logService = require("../services/logService");
 const fs = require("fs").promises;
 const path = require("path");
 
@@ -27,7 +27,7 @@ module.exports = {
         receiver
       );
 
-      console.log("Email sent:", info.response);
+      await commonUtils.log(info, "Emailer Data");
     } catch (error) {
       console.error("Error occurred in email section:", error);
       await logService.Insert(error, "Error occurred in email section");

@@ -26,6 +26,13 @@ const Messages = {
 
   BadResponse:
     "Provide valid values or you are not allowed to use the given values.",
+  EmailExists: "Email already exist",
+  UserNotExists: "User does not exist, please register first",
+  SendOtpSuccess: "Otp sent successfully",
+  ResendOtpFailed: "Resend OTP not allowed, please initiate the send OTP first",
+  InvalidOtp: "Invalid Otp",
+  OtpVerify: "OTP verifies successfully.",
+  OtpAlreadyVerify: "OTP already verify.",
 
   emailSubjects: {
     OtpSendEmailSubject: "Your Otp For E-Business Login or Registration",

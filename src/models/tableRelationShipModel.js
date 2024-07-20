@@ -1,11 +1,16 @@
 // please add all the relationships here in this file
-
 const sequelize = require("../config/database");
-const { DataTypes, where } = require("sequelize");
 require("dotenv").config();
-const users = require("./userModel");
 
-// users.hasOne(userAddress, { foreignKey: "userId" });
-// users.hasMany(userInterests, { foreignKey: "userId" });
+const Users = require("./userModel");
+const OtpManagment = require("./otpManagmentModel");
 
-users.sync({ alter: false });
+OtpManagment.belongsTo(Users, {
+  foreignKey: "userId",
+  as: "userData",
+});
+
+// user belong to organization
+
+Users.sync({ alter: false });
+OtpManagment.sync({ alter: false });
